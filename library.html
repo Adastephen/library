@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="./dist/output.css">
+    
+</head>
+<body>
+    <div class="bg-white font-serif h-screen">
+        <div class="w-6/12 text-xl m-auto bg-red-300">
+            <div class="p-6 text-center">
+                <h1 class=" font-bold border-2 text-3xl">Library</h1>
+                <p class="text-sm text-gray-500 mt-2">Explore the library for books that might interest you</p>
+            </div>
+           
+            <div id="bookIn" class="p-4">
+                    <form id="formIn" action="">
+                        <div id="titles" class="mt-4 ">
+                            <label for="titleBook">Book Title:</label>
+                            <input class="w-full" type="text">
+                        </div>
+                        <div id="nameOfAuthor" class="mt-4 ">
+                            <label for="nameOfAuthor">Name of Author:</label>
+                            <input class="w-full" type="text" value="stehen">
+                        </div>
+                        <div id="numberOfPages" class="mt-4 ">
+                            <label for="noOfPages">Number of Pages:</label>
+                            <input class="w-full" type="number">
+                        </div>
+                        <div id="numberRead" class="mt-4 ">
+                            <label for="noRead">Number of pages read:</label>
+                            <input class="w-full" type="number">
+                        </div>
+                        <button id="readIn" class="bg-blue-300 text-center border-2 mt-4 w-full text-white rounded-lg">
+                            Read
+                        </button>  
+                    </form>
+                    <button id="submit" class="bg-red-500 text-center border-2 mt-4 w-full text-white rounded-lg">
+                    submit
+                    </button>
+                    <button id="clear" class="bg-black text-center border-2 mt-4 w-full text-white rounded-lg">
+                        clear
+                    </button>
+            </div>
+        </div> 
+        <div class="mt-4" id="output">       
+            <div class="w-4/5 text-sm m-auto bg-red-50">           
+                <div id="bookIn" class="flex justify-between p-4 border-2 border-gray-500">
+                    <div class="mt-4 ">
+                        <label for="titleBook">Book Title:</label>
+                        <p id="titlesStatus" class="bg-white border-2 px-2 rounded-lg"></p>
+                    </div>
+                    <div class="mt-4 ">
+                        <label for="">Name of Author:</label>
+                        <p id="nameOfAuthorStatus" class="bg-white border-2 px-2 rounded-lg"></p>
+                    </div>
+                    <div class="mt-4 ">
+                        <label for="">Number of Pages:</label>
+                        <p id="numberOfPagesStatus" class="bg-white border-2 px-2 rounded-lg"></p>
+                    </div>
+                    <div class="mt-4 ">
+                        <label for="">Number of pages read:</label>
+                        <p id="numberReadStatus" class="bg-white border-2 px-2 rounded-lg"></p>
+                    </div>
+                    <div class="mt-4">
+                        <p class="">Status</p>
+                        <p id="readingstatus" class="bg-white border-2 px-2 rounded-lg"></p>
+                    </div>
+                    <div class="flex ">
+                        <button class="bg-red-400 border-2 rounded-lg p-2 m-2" id="deleteCard">Delete</button>
+                        <button class="bg-red-400 border-2 rounded-lg p-2 m-2" id="editCard">Edit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./library.js"></script>
+</body>
+</html>

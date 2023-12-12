@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="validate.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="./dist/output.css">
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+
+        <!-- //-------------------font link---------------------------------------------
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dhurjati&display=swap" rel="stylesheet"> -->
+</head>
+<!-- //----------------the body starts here -------------------------  -->
+
+<body class="h-screen bg-white">
+    <!-- -----------the header ---------------- -->
+
+    <header class="border-b border-b-gray-500">
+        <nav class="w-4/5 m-auto">
+
+            <div class=" flex m-auto justify-between">
+                 <!-- -----------------the brand logo -----------------  -->
+
+                <a class="sm:h-1/6 flex content-center items-center my-2  " href="">
+                    <img class="w-10 h-10 rounded" src="iStock-1187648660.png" alt="logo image">
+
+                    <!-- // ------------------the brand name ----------------========= -->
+                    <p class="text-black ml-2 text-sm ">Assmart</p>
+                </a>
+
+                <!----------------------menu lists============  -->
+                <div class="items-center flex text-sm mx-3 ml-9 justify-between ">
+                    <a href="#" class="px-4 py-3 hover:duration-500 hover:border-b-4 hover:border-red-500">home</a>
+
+                    <!-- -------------dropdown button--------- -->
+                    <button id="product-drop-title" class="pr-4 py-3 hover:delay-200 hover:border-b-4 hover:border-red-500 flex hs-dropdown-toggle">
+                        product
+                        <svg class="w-2 h-2 ml-2 mt-2 text-black content-center items-center dark:text-white" aria-hidden="false" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 8">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7 7.674 1.3a.91.91 0 0 0-1.348 0L1 7"/>
+                        </svg>
+                    </button>
+
+                    <!-- ------the dropdown lists---------------- -->
+                    <div class="hover:inline-block hidden  " aria-labelledby="product-drop-title">
+                        <div>
+                            <a href="">Outsourcefull products</a>
+                            <a href="">Internal products</a>
+                            <a href="">Conbinations products</a>
+                        </div>
+                    </div>
+
+                    <!-- ------- the remaininf menu list-------- -->
+                    <a href="#" class="pr-4 py-3 hover:duration-500 hover:border-b-4 hover:border-red-500">about us</a>
+                    <a href="# " class="pr-4 py-3 hover:delay-200 hover:border-b-4 hover:border-red-500">contact</a>
+                </div>
+
+                <!-- //------------------ the login/register======== -->
+                <div class="flex items-center text-sm justify-between">
+                    <p class="bg-white p-2 px-4 mx-2 rounded-xl border-orange-400  border-2 ">Register</p>
+
+                    <p class="bg-blue-400 text-white p-2 rounded-xl items-center px-6">Login</p>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- -----------------------------------------------end of header----------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------------------------------------------------------------------------- -->
+    <section>
+        <div class="flex justify-between w-6/12 m-auto bg-blue-200">
+            <div class="w-6/12 flex m-4 content-center item-center border-2 p-4">
+                <button class="inline-block m-1 rounded-lg border-2 border-gray-400 p-2 text-sm bg-white font-serif font-bold hover:bg-blue-300 hover:text-white ">
+                    check date
+                </button>
+                <button class="inline-block m-1 rounded-lg border-2 border-gray-400 p-2 text-sm bg-white font-serif font-bold hover:bg-blue-300 hover:text-white ">
+                    check time
+                </button>
+            </div>
+            <div class="w-full bg-green-400  content-center items-center">   
+                <p class="border-2 h-2/4" id="timeScreen">time</p>
+                <p class="" id="dateScreen">Date</p>
+            </div>
+        </div>
+    </section>
+    <script src="./date.js"></script>
+</body>
+</html>
