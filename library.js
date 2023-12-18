@@ -115,6 +115,7 @@ function addButton (){
     // the inputName field in the form
     let inputName = document.createElement('input');
     inputName.setAttribute('type', 'text');
+    inputName.setAttribute('id', 'input');
 
     // the input css styling
     inputName.style.cssText = 'width: 100%; margin: 2px; padding:4px;';
@@ -133,6 +134,7 @@ function addButton (){
     // the inputName field in the form
     let inputAuthor = document.createElement('input');
     inputAuthor.setAttribute('type', 'text');
+    inputAuthor.setAttribute('id', 'input');
 
     // the input css styling
     inputAuthor.style.cssText = 'width: 100%; margin: 2px; padding:4px;';
@@ -151,6 +153,7 @@ function addButton (){
     // the number of pages field in the form
     let inputNumber = document.createElement('input');
     inputNumber.setAttribute('type', 'number');
+    inputNumber.setAttribute('id', 'input');
 
     // the input css styling
     inputNumber.style.cssText = 'width: 100%; margin: 2px; padding:4px;';
@@ -184,40 +187,97 @@ function addButton (){
     btnkeys.appendChild(buttonClear);
     // ======================================================
 
+
+
     // the return fuctions that will be responsible for the return of the input value.----------------------------------------------
     buttonSubmit.addEventListener('click', () => {
 
       // get input value----------------------------
-      let titles = inputName.value;
-      let inputDIvAuthor = inputAuthor.value;
-      let inputDIvNumber = inputNumber.value;
+      titles = inputName.value;
+      Author = inputAuthor.value;
+      Pages = inputNumber.value;
+
       let newResult = new Book;
 
 
 
       // create a div that input will display----------------------
       let resultDivs = document.createElement('div');
-      resultDivs.style.cssText = 'display: flex; border: 2px solid black; margin-top: 4px; padding: 10px; background-color: white'; 
+      resultDivs.style.cssText = 'display: flex; border: 2px solid black; margin-top: 4px; padding: 10px; background-color: white; justify-content: space-between;'; 
       let resultDiv = mainDiv.appendChild(resultDivs);
 
-      // the book name result div in the div display-------------------
+      // the book name result div in the div display----------------------------------------------------
       let bookNameResultDiv = document.createElement('div');
       let BNResultDiv = resultDiv.appendChild(bookNameResultDiv);
-      BNResultDiv.style.cssText = 'display:block;'
+      BNResultDiv.style.cssText = 'display:block;';
 
       //the label of the book name result
       let bookName = document.createElement('p');
       bookName.textContent = 'Name of Book:';
       BNResultDiv.appendChild(bookName);
+
       // the result of the book name value
       let bookNameResultdisplay = document.createElement('p');
-      let bookNameResult = titles;
-      if (titles === ''){
-        alert('book name cannot be empty');
-      }
-        bookNameResultdisplay.textContent = bookNameResult;BNResultDiv.appendChild(bookNameResultdisplay);
+        bookNameResultdisplay.textContent = titles;
+        BNResultDiv.appendChild(bookNameResultdisplay);
+        // resultDiv.appendChild(newResult); 
+
+      // the book author result div in the div display--------------------------------------------------------------->
+      let bookAuthorResultDiv = document.createElement('div');
+      let BAResultDiv = resultDiv.appendChild(bookAuthorResultDiv);
+      BAResultDiv.style.cssText = 'display:block;';
+
+      //the label of the book name result
+      let bookAuthor = document.createElement('p');
+      bookAuthor.textContent = 'Name of Author:';
+      BAResultDiv.appendChild(bookAuthor);
+
+      // the result of the book name value
+      let bookAuthorResultdisplay = document.createElement('p');
+     
+        bookAuthorResultdisplay.textContent = Author;
+        BAResultDiv.appendChild(bookAuthorResultdisplay);
+        // resultDiv.appendChild(newResult);
       
-      resultDiv.appendChild(newResult);
+
+      // the book number of pages results
+      let bookNumbersDiv = document.createElement('div');
+      let BNumDIv = resultDiv.appendChild(bookNumbersDiv);
+      BNumDIv.style.cssText = 'display:block;';
+
+      // the label of the  number of pages 
+      let bookPages = document.createElement('p');
+      bookPages.textContent = 'Number of pages';
+      BNumDIv.appendChild(bookPages);
+
+      // the number of pages values
+      let bookPageResultdisplay = document.createElement('p');
+      bookPageResultdisplay.textContent = Pages;
+      BNumDIv.appendChild(bookPageResultdisplay);
+      // resultDiv.appendChild(newResult);
+      // return and empty input
+      let allInput = document.querySelectorAll('#input');
+      allInput.forEach(everyInput => everyInput.value = '');
+
+      if (allInput === ''){
+        return null;
+      }
+      else{
+        return mainDiv;
+      }
+      
+      // the 
+      // // the label of the author of the book
+      // let bookAuthor = document.createElement('p');
+      // bookAuthor.textContent = 'Name of Author';
+      // let BAResultDiv = resultDiv.appendChild(bookAuthor);
+
+      // // the result of the author name value
+      // let bookAuthorResultdisplay = document.createElement('p');
+      // let bookAuthorResult = Author;
+      // bookAuthorResultdisplay.textContent = bookAuthorResult;
+
+      
       
       
 
@@ -227,10 +287,20 @@ function addButton (){
       // rootDiv.appendChild(resultDiv)
 
     })
+    
+    buttonClear.addEventListener('click', () => {
+        let allInput = document.querySelectorAll('#input');
+        // e.preventDefault();
+        // allInput.reset();
+        allInput.forEach(everyInput => everyInput.value = '');
+})
 
 
     return mainDiv;
 }
+
+// button the clear all the input
+
 rootDiv.appendChild(addButton());
 
 console.log(addButton());
