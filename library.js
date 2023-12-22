@@ -228,7 +228,7 @@ function addButton () {
       // the book name result div in the div display----------------------------------------------------
       let bookNameResultDiv = document.createElement('div');
       let BNResultDiv = resultDiv.appendChild(bookNameResultDiv);
-      BNResultDiv.style.cssText = 'display:block;border:1px solid black; margin: 10px; padding: 10px;';
+      BNResultDiv.style.cssText = 'display:block;border-right:1px solid black; padding: 10px;';
 
       //the label of the book name result
       let bookName = document.createElement('p');
@@ -244,7 +244,7 @@ function addButton () {
       // the book author result div in the div display--------------------------------------------------------------->
       let bookAuthorResultDiv = document.createElement('div');
       let BAResultDiv = resultDiv.appendChild(bookAuthorResultDiv);
-      BAResultDiv.style.cssText = 'display:block;border:1px solid black; margin: 10px; padding: 10px;';
+      BAResultDiv.style.cssText = 'display:block;border-right:1px solid black;padding:10px;';
 
       //the label of the book name result
       let bookAuthor = document.createElement('p');
@@ -262,7 +262,7 @@ function addButton () {
       // the book number of pages results
       let bookNumbersDiv = document.createElement('div');
       let BNumDIv = resultDiv.appendChild(bookNumbersDiv);
-      BNumDIv.style.cssText = 'display:block;border:1px solid black; margin: 10px; padding: 10px;';
+      BNumDIv.style.cssText = 'display:block;border-right:1px solid black;padding:10px;';
 
       // the label of the  number of pages 
       let bookPages = document.createElement('p');
@@ -282,7 +282,7 @@ function addButton () {
       // label for read status
       let readStatusDiv = document.createElement('div');
       let allReadStatus = resultDiv.appendChild(readStatusDiv);
-      allReadStatus.style.cssText = 'display:block;border:1px solid black; margin: 10px; padding: 10px;';
+      allReadStatus.style.cssText = 'display:block;border-right:1px solid black; padding:10px;';
       let readStatus = document.createElement('p');
       
       readStatus.textContent = 'Read Status';
@@ -305,7 +305,7 @@ function addButton () {
       let Ddiv = resultDiv.appendChild(deleteDiv);
       let deleteBtn = document.createElement('button');
       deleteBtn.textContent = 'Delete';
-      deleteBtn.style.cssText = 'background-color:gray; border:1px solid black; border-radius:16px; padding:14px;';
+      deleteBtn.style.cssText = 'background-color:gray; border:1px solid black; margin:10px;border-radius:16px; padding:10px;';
       deleteDiv.style.cssText = 'align-items: center;';
       Ddiv.appendChild(deleteBtn);
 
@@ -321,9 +321,10 @@ let editDiv = document.createElement('div');
 let Ediv = resultDiv.appendChild(editDiv);
 let editBtn = document.createElement('button');
 editBtn.textContent = 'Edit';
-editBtn.style.cssText = 'background-color: orange; border: 1px solid black; border-radius: 16px; padding: 14px;';
-editDiv.style.cssText = 'align-items: center;';
+editBtn.style.cssText = 'background-color: orange; border: 1px solid black; margin:10px;border-radius:16px; padding:10px;';
+editDiv.style.cssText = 'align-items: center; justify-content: center;';
 Ediv.appendChild(editBtn);
+
 
 // edit button event listener
 
@@ -354,7 +355,7 @@ editBtn.addEventListener('click', () => {
   // Add a "Save" button to save the changes
   let saveBtn = document.createElement('button');
   saveBtn.textContent = 'Save';
-  saveBtn.style.cssText = 'background-color: green; border: 1px solid black; border-radius: 16px; padding: 14px;';
+  saveBtn.style.cssText = 'background-color: green; border: 1px solid black;margin:10px; border-radius: 16px; padding: 10px;';
   editBtn.remove();
   Ediv.appendChild(saveBtn);
 
