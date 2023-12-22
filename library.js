@@ -223,7 +223,7 @@ function addButton () {
       // create a div that input will display----------------------
       let resultDivs = document.createElement('div');
       resultDivs.style.cssText = 'display: flex; border: 2px solid black; margin-top: 4px; padding: 10px; background-color: white; justify-content: space-between;'; 
-      let resultDiv = mainDiv.appendChild(resultDivs);
+      let resultDiv = rootDiv.appendChild(resultDivs);
 
       // the book name result div in the div display----------------------------------------------------
       let bookNameResultDiv = document.createElement('div');
