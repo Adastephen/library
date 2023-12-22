@@ -88,7 +88,8 @@ class Book {
 let rootDiv = document.querySelector("#output2");
 // rootDiv.classList.add ='';
 
-function addButton (){
+function addButton () {
+    
   // create the main div that carries the whole body of the input forms
     let mainDiv = document.createElement('div');
 
@@ -158,6 +159,19 @@ function addButton (){
     // the input css styling
     inputNumber.style.cssText = 'width: 100%; margin: 2px; padding:4px;';
     numberFPdiv.appendChild(inputNumber);
+
+
+    // Add a checkbox input for indicating whether the book is read or unread
+    let readDiv = document.createElement('div');
+    let readDivs = secDiv.appendChild(readDiv);
+    readDivs.style.cssText = 'width: 100%; margin: 2px; padding:4px;';
+    let readLabel = document.createElement('label');
+    readLabel.textContent = 'Read? ';
+    readDivs.appendChild(readLabel);
+
+    let readCheckbox = document.createElement('input');
+    readCheckbox.setAttribute('type', 'checkbox');
+    readDivs.appendChild(readCheckbox);
     //=========================================================
 
     // -------the button element------------------------------------
@@ -191,6 +205,11 @@ function addButton (){
 
     // the return fuctions that will be responsible for the return of the input value.----------------------------------------------
     buttonSubmit.addEventListener('click', () => {
+
+      if (inputName.value === '' && inputAuthor.value == '' && inputPages.value && '') {
+        alert('Please fill out all the fields');
+        return;
+    } 
 
       // get input value----------------------------
       titles = inputName.value;
@@ -259,33 +278,106 @@ function addButton (){
       let allInput = document.querySelectorAll('#input');
       allInput.forEach(everyInput => everyInput.value = '');
 
-      if (allInput === ''){
-        return null;
-      }
-      else{
-        return mainDiv;
-      }
+      // for the checkbox to show it is read or not
+      // label for read status
+      let readStatusDiv = document.createElement('div');
+      let readStatus = document.createElement('p');
+      readStatus.textContent = 'Read Status';
+      readStatusDiv.style.cssText = 'display:block;';
+      let allReadStatus = readStatusDiv.appendChild(readStatus);
+      resultDiv.appendChild(allReadStatus);
+
+      // result for read status
+      const isRead = readCheckbox.checked;
+
+      // Display whether the book is read or unread
       
-      // the 
-      // // the label of the author of the book
-      // let bookAuthor = document.createElement('p');
-      // bookAuthor.textContent = 'Name of Author';
-      // let BAResultDiv = resultDiv.appendChild(bookAuthor);
+      let readStatusResult = document.createElement('p');
+      readStatusResult.textContent = isRead ? 'Read' : 'Unread';
+      let insideRead = readStatusDiv.appendChild(readStatusResult)
+      resultDiv.appendChild(insideRead);
+  
 
-      // // the result of the author name value
-      // let bookAuthorResultdisplay = document.createElement('p');
-      // let bookAuthorResult = Author;
-      // bookAuthorResultdisplay.textContent = bookAuthorResult;
+      // the delete button in the div 
 
+      let deleteDiv = document.createElement('div');
+      let Ddiv = resultDiv.appendChild(deleteDiv);
+      let deleteBtn = document.createElement('button');
+      deleteBtn.textContent = 'Delete';
+      deleteBtn.style.cssText = 'background-color:gray; border:1px solid black; border-radius:16px; padding:14px;';
+      deleteDiv.style.cssText = 'align-items: center;';
+      Ddiv.appendChild(deleteBtn);
+
+      deleteBtn.addEventListener('click', () => {
+        // Assuming you want to remove the entire resultDiv when the delete button is clicked
+        resultDiv.remove();
+      });
       
+      // ... (previous code)
+
+// the edit button in the div 
+let editDiv = document.createElement('div');
+let Ediv = resultDiv.appendChild(editDiv);
+let editBtn = document.createElement('button');
+editBtn.textContent = 'Edit';
+editBtn.style.cssText = 'background-color: orange; border: 1px solid black; border-radius: 16px; padding: 14px;';
+editDiv.style.cssText = 'align-items: center;';
+Ediv.appendChild(editBtn);
+
+// edit button event listener
+
+editBtn.addEventListener('click', () => {
+  // Replace the display with input fields for editing
+
+  // Replace the book name display with an input field
+  let editBookNameInput = document.createElement('input');
+  editBookNameInput.setAttribute('type', 'text');
+  editBookNameInput.value = titles; // Set the current value
+
+  BNResultDiv.replaceWith(editBookNameInput);
+
+  // Replace the book author display with an input field
+  let editBookAuthorInput = document.createElement('input');
+  editBookAuthorInput.setAttribute('type', 'text');
+  editBookAuthorInput.value = Author; // Set the current value
+
+  BAResultDiv.replaceWith(editBookAuthorInput);
+
+  // Replace the number of pages display with an input field
+  let editBookPagesInput = document.createElement('input');
+  editBookPagesInput.setAttribute('type', 'number');
+  editBookPagesInput.value = Pages; // Set the current value
+
+  BNumDIv.replaceWith(editBookPagesInput);
+
+  // Add a "Save" button to save the changes
+  let saveBtn = document.createElement('button');
+  saveBtn.textContent = 'Save';
+  saveBtn.style.cssText = 'background-color: green; border: 1px solid black; border-radius: 16px; padding: 14px;';
+  editBtn.remove();
+  Ediv.appendChild(saveBtn);
+
+  saveBtn.addEventListener('click', () => {
+    // Save the changes and update the display
+    titles = editBookNameInput.value;
+    Author = editBookAuthorInput.value;
+    Pages = editBookPagesInput.value;
+
+    // Update the display with the new values
+    bookNameResultdisplay.textContent = titles;
+    bookAuthorResultdisplay.textContent = Author;
+    bookPageResultdisplay.textContent = Pages;
+
+    // Remove the input fields and save button, and add back the "Edit" button
+    editBookNameInput.replaceWith(BNResultDiv);
+    editBookAuthorInput.replaceWith(BAResultDiv);
+    editBookPagesInput.replaceWith(BNumDIv);
+    saveBtn.remove();
+    Ediv.appendChild(editBtn);
+  });
+});
       
-      
-
-      // resultDiv.textContent = 'the input value: ' + inputDIvName;
-
-      //append the resultDiv to the rootDiv
-      // rootDiv.appendChild(resultDiv)
-
+      // console.log(newResult);
     })
     
     buttonClear.addEventListener('click', () => {
@@ -296,6 +388,7 @@ function addButton (){
 })
 
 
+
     return mainDiv;
 }
 
@@ -304,14 +397,6 @@ function addButton (){
 rootDiv.appendChild(addButton());
 
 console.log(addButton());
-
-
-
-
-
-
-
-
 
 
 
