@@ -220,7 +220,7 @@ function addButton () {
 
 
 
-      // create a div that input will display----------------------
+      // create a div that input will display--------------------------------------------------------------------
       let resultDivs = document.createElement('div');
       resultDivs.style.cssText = 'display: flex; border: 2px solid black; margin-top: 4px; padding: 10px; background-color: white; justify-content: space-between;'; 
       let resultDiv = rootDiv.appendChild(resultDivs);
@@ -228,11 +228,11 @@ function addButton () {
       // the book name result div in the div display----------------------------------------------------
       let bookNameResultDiv = document.createElement('div');
       let BNResultDiv = resultDiv.appendChild(bookNameResultDiv);
-      BNResultDiv.style.cssText = 'display:block;';
+      BNResultDiv.style.cssText = 'display:block;border:1px solid black; margin: 10px; padding: 10px;';
 
       //the label of the book name result
       let bookName = document.createElement('p');
-      bookName.textContent = 'Name of Book:';
+      bookName.textContent = 'Name of Book';
       BNResultDiv.appendChild(bookName);
 
       // the result of the book name value
@@ -244,11 +244,11 @@ function addButton () {
       // the book author result div in the div display--------------------------------------------------------------->
       let bookAuthorResultDiv = document.createElement('div');
       let BAResultDiv = resultDiv.appendChild(bookAuthorResultDiv);
-      BAResultDiv.style.cssText = 'display:block;';
+      BAResultDiv.style.cssText = 'display:block;border:1px solid black; margin: 10px; padding: 10px;';
 
       //the label of the book name result
       let bookAuthor = document.createElement('p');
-      bookAuthor.textContent = 'Name of Author:';
+      bookAuthor.textContent = 'Name of Author';
       BAResultDiv.appendChild(bookAuthor);
 
       // the result of the book name value
@@ -262,7 +262,7 @@ function addButton () {
       // the book number of pages results
       let bookNumbersDiv = document.createElement('div');
       let BNumDIv = resultDiv.appendChild(bookNumbersDiv);
-      BNumDIv.style.cssText = 'display:block;';
+      BNumDIv.style.cssText = 'display:block;border:1px solid black; margin: 10px; padding: 10px;';
 
       // the label of the  number of pages 
       let bookPages = document.createElement('p');
@@ -281,11 +281,12 @@ function addButton () {
       // for the checkbox to show it is read or not
       // label for read status
       let readStatusDiv = document.createElement('div');
+      let allReadStatus = resultDiv.appendChild(readStatusDiv);
+      allReadStatus.style.cssText = 'display:block;border:1px solid black; margin: 10px; padding: 10px;';
       let readStatus = document.createElement('p');
+      
       readStatus.textContent = 'Read Status';
-      readStatusDiv.style.cssText = 'display:block;';
-      let allReadStatus = readStatusDiv.appendChild(readStatus);
-      resultDiv.appendChild(allReadStatus);
+      allReadStatus.appendChild(readStatus);
 
       // result for read status
       const isRead = readCheckbox.checked;
@@ -294,8 +295,8 @@ function addButton () {
       
       let readStatusResult = document.createElement('p');
       readStatusResult.textContent = isRead ? 'Read' : 'Unread';
-      let insideRead = readStatusDiv.appendChild(readStatusResult)
-      resultDiv.appendChild(insideRead);
+      let insideRead = resultDiv.appendChild(readStatusDiv)
+      insideRead.appendChild(readStatusResult);
   
 
       // the delete button in the div 
